@@ -1,0 +1,193 @@
+{
+  "summary": [
+    {
+      "periode": "02-2023",
+      "data": [
+        {
+          "name": "Working Day(s)",
+          "value": "2 Hari"
+        },
+        {
+          "name": "Working Hour(s)",
+          "value": "3 hr 14 min"
+        },
+        {
+          "name": "Exceptional Attendance",
+          "value": "1 Hari"
+        },
+        {
+          "name": "Leave Taken",
+          "value": "1 Hari"
+        },
+        {
+          "name": "Overtime",
+          "value": "10 hr 00 min"
+        },
+        {
+          "name": "Claim",
+          "value": "IDR 0"
+        }
+      ]
+    },
+    {
+      "periode": "03-2023",
+      "data": [
+        {
+          "name": "Working Day(s)",
+          "value": "2 Hari"
+        },
+        {
+          "name": "Working Hour(s)",
+          "value": "13 hr 14 min"
+        },
+        {
+          "name": "Exceptional Attendance",
+          "value": "0 Hari"
+        },
+        {
+          "name": "Leave Taken",
+          "value": "0 Hari"
+        },
+        {
+          "name": "Overtime",
+          "value": "00 hr 00 min"
+        },
+        {
+          "name": "Claim",
+          "value": "IDR 0"
+        }
+      ]
+    },
+    {
+      "periode": "04-2023",
+      "data": [
+        {
+          "name": "Working Day(s)",
+          "value": "22 Hari"
+        },
+        {
+          "name": "Working Hour(s)",
+          "value": "113 hr 14 min"
+        },
+        {
+          "name": "Exceptional Attendance",
+          "value": "1 Hari"
+        },
+        {
+          "name": "Leave Taken",
+          "value": "2 Hari"
+        },
+        {
+          "name": "Overtime",
+          "value": "02 hr 00 min"
+        },
+        {
+          "name": "Claim",
+          "value": "IDR 125.000"
+        }
+      ]
+    },
+    {
+      "periode": "05-2023",
+      "data": [
+        {
+          "name": "Working Day(s)",
+          "value": "18 Hari"
+        },
+        {
+          "name": "Working Hour(s)",
+          "value": "53 hr 14 min"
+        },
+        {
+          "name": "Exceptional Attendance",
+          "value": "2 Hari"
+        },
+        {
+          "name": "Leave Taken",
+          "value": "2 Hari"
+        },
+        {
+          "name": "Overtime",
+          "value": "12 hr 00 min"
+        },
+        {
+          "name": "Claim",
+          "value": "IDR 275.000"
+        }
+      ]
+    },
+    {
+      "periode": "06-2023",
+      "data": [
+        {
+          "name": "Working Day(s)",
+          "value": "2 Hari"
+        },
+        {
+          "name": "Working Hour(s)",
+          "value": "13 hr 14 min"
+        },
+        {
+          "name": "Exceptional Attendance",
+          "value": "0 Hari"
+        },
+        {
+          "name": "Leave Taken",
+          "value": "0 Hari"
+        },
+        {
+          "name": "Overtime",
+          "value": "00 hr 00 min"
+        },
+        {
+          "name": "Claim",
+          "value": "IDR 0"
+        }
+      ]
+    }
+  ],
+  "task": [
+    {
+      "title": "[Wms][Web][Task] Create Goals Design",
+      "subtitle": "UI/UX Designer",
+      "level": "Medium",
+      "comment": "2",
+      "attached_file": "44",
+      "date": "2023-03-14 18:07:43"
+    },
+    {
+      "title": "[Wms][Chat] Improve Design",
+      "subtitle": "UI/UX Designer",
+      "level": "Medium",
+      "comment": "2",
+      "attached_file": "44",
+      "date": "2023-04-20 18:07:43"
+    },
+    {
+      "title": "[Wms][Task] Improve Dashboard",
+      "subtitle": "UI/UX Designer",
+      "level": "Medium",
+      "comment": "2",
+      "attached_file": "44",
+      "date": "2023-05-10 18:07:43"
+    }
+  ],
+  "userDetail": [
+    {
+      "title": "Employee ID",
+      "value": "PT - GOO34"
+    },
+    {
+      "title": "Position",
+      "value": "Senior Front-End Developer"
+    },
+    {
+      "title": "Join Date",
+      "value": "23 Feb 2018"
+    },
+    {
+      "title": "Years of Service",
+      "value": "4 Years 5 Months 2 Days"
+    }
+  ]
+}

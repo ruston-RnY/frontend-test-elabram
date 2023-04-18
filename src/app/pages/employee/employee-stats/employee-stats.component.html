@@ -1,0 +1,151 @@
+<section
+  class="bg-base-body min-h-screen pt-[6.5rem] px-4 lg:px-8 pb-12 font-open-sans employee"
+>
+  <div class="md:flex items-center mb-[20px]">
+    <h1 class="text-base lg:text-2xl xl:text-3xl font-bold">
+      Employee Summary
+    </h1>
+
+    <div class="ml-auto max_xs:grid-cols-1 grid grid-cols-2 gap-4 max_sm:mt-4">
+      <div class="flex items-center">
+        <h6 class="text-xs md:text-sm font-extralight max_sm:w-12">
+          Display Data in
+        </h6>
+        <p-selectButton
+          [options]="filterPeriodeOptions"
+          [(ngModel)]="filterValue"
+          optionLabel="label"
+          optionValue="value"
+          class="ml-2"
+        ></p-selectButton>
+      </div>
+      <div class="flex items-center max_xs:ml-0 ml-auto">
+        <h6 class="text-xs md:text-sm font-extralight">Periode</h6>
+        <div class="ml-2 relative max_sm:w-24 md:w-52">
+          <p-calendar
+            *ngIf="filterValue == 'monthly'"
+            [(ngModel)]="monthPeriode"
+            view="month"
+            dateFormat="MM yy"
+            [yearNavigator]="true"
+            yearRange="2000:2030"
+            [readonlyInput]="true"
+            inputId="monthpicker"
+            (ngModelChange)="onChangePeriode('monthly')"
+          ></p-calendar>
+
+          <p-calendar
+            *ngIf="filterValue == 'yearly'"
+            [(ngModel)]="yearPeriode"
+            view="year"
+            dateFormat="yy"
+            inputId="yearpicker"
+            (ngModelChange)="onChangePeriode('yearly')"
+          ></p-calendar>
+
+          <i
+            class="pi pi-calendar text-base-blue-primary absolute right-3 top-3"
+          ></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-y-4 md:gap-4 mt-4 content">
+    <div
+      class="col-span-2 bg-white rounded-md p-4 sm:px-4 md:px-6 shadow-light border text-sm xs:text-base lg:text-lg xl:text-xl"
+    >
+      <app-chart-bar
+        [dataChart]="dataEmployee.data[0].attendance_summary"
+      ></app-chart-bar>
+    </div>
+
+    <div
+      class="bg-white rounded-md p-4 sm:px-4 md:px-6 shadow-light border text-sm xs:text-base lg:text-lg xl:text-xl"
+    >
+      <app-chart-pie
+        [dataChart]="dataEmployee.data[0].attendance_completeness"
+      ></app-chart-pie>
+    </div>
+  </div>
+
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-y-4 md:gap-4 mt-4 content">
+    <div
+      class="bg-white rounded-md p-4 sm:px-4 md:px-6 shadow-light border text-sm xs:text-base lg:text-lg xl:text-xl"
+    >
+      <app-chart-pie
+        [dataChart]="dataEmployee.data[0].overall_task_progress"
+      ></app-chart-pie>
+    </div>
+
+    <div
+      class="col-span-2 bg-white rounded-md p-4 sm:px-4 md:px-6 shadow-light border text-sm xs:text-base lg:text-lg xl:text-xl"
+    >
+      <app-chart-line
+        [dataChart]="dataEmployee.data[0].task_completion"
+      ></app-chart-line>
+    </div>
+  </div>
+
+  <div class="mt-4 bg-white rounded-md p-4 sm:px-4 md:px-6 shadow-light border">
+    <h5
+      class="font-bold text-base-gray-medium text-sm xs:text-base lg:text-lg xl:text-xl"
+    >
+      Leave Recap
+    </h5>
+
+    <div class="employee-table">
+      <p-table
+        [value]="recaps"
+        [scrollable]="true"
+        scrollHeight="400px"
+        styleClass="mt-3"
+      >
+        <ng-template pTemplate="header">
+          <tr>
+            <th pSortableColumn="code" style="min-width: 200px" pFrozenColumn>
+              Leave Code
+            </th>
+            <th pSortableColumn="requested" style="min-width: 200px">
+              Requested On <p-sortIcon field="code"></p-sortIcon>
+            </th>
+            <th pSortableColumn="leave_type" style="min-width: 200px">
+              Leave Type <p-sortIcon field="requested"></p-sortIcon>
+            </th>
+            <th pSortableColumn="start_date" style="min-width: 200px">
+              Start Date <p-sortIcon field="start_date"></p-sortIcon>
+            </th>
+            <th pSortableColumn="end_date" style="min-width: 200px">
+              End Date <p-sortIcon field="end_date"></p-sortIcon>
+            </th>
+            <th pSortableColumn="duration" style="min-width: 200px">
+              Duration <p-sortIcon field="duration"></p-sortIcon>
+            </th>
+            <th pSortableColumn="day_type" style="min-width: 200px">
+              Day Type <p-sortIcon field="day_type"></p-sortIcon>
+            </th>
+            <th pSortableColumn="leave_category" style="min-width: 200px">
+              Leave Category <p-sortIcon field="leave_category"></p-sortIcon>
+            </th>
+            <th pSortableColumn="reason" style="min-width: 200px">
+              Reason <p-sortIcon field="reason"></p-sortIcon>
+            </th>
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-recap>
+          <tr>
+            <td pFrozenColumn>{{ recap.code }}</td>
+            <td>{{ recap.requested | date : "EEEE, d MMMM, y" }}</td>
+            <td>{{ recap.leave_type }}</td>
+            <td>{{ recap.start_date | date : "EEEE, d MMMM, y" }}</td>
+            <td>{{ recap.end_date | date : "EEEE, d MMMM, y" }}</td>
+            <td>{{ recap.duration }}</td>
+            <td>{{ recap.day_type }}</td>
+            <td>{{ recap.leave_category }}</td>
+            <td>{{ recap.reason }}</td>
+          </tr>
+        </ng-template>
+      </p-table>
+    </div>
+  </div>
+</section>

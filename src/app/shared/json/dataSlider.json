@@ -1,0 +1,22 @@
+{
+  "data": [
+    {
+      "title": "A few clicks away from being a part of Axdif",
+      "subTitle": "Manage Task Easily & Efficiently",
+      "image": "assets/images/register-ilustration-1.png",
+      "desc": "Increase employee productivity and performance in a measurable and precision system in one application."
+    },
+    {
+      "title": "A few clicks away from being a part of Axdif",
+      "subTitle": "Communication Is Key",
+      "image": "assets/images/register-ilustration-2.png",
+      "desc": "Connect with your coworkers anywhere like you are in one workspace. Very simple and fast."
+    },
+    {
+      "title": "A few clicks away from being a part of Axdif",
+      "subTitle": "Employee Self-Service",
+      "image": "assets/images/register-ilustration-3.png",
+      "desc": "Simplify the administrative affairs of the company where you work wherever and whenever. Let’s get started with all these conveniences"
+    }
+  ]
+}

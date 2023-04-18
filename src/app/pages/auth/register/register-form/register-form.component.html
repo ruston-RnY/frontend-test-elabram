@@ -1,0 +1,260 @@
+<div class="bg-white px-4 py-6 lg:p-0 rounded-md mt-6 lg:mt-8">
+  <h2 class="text-2xl md:text-3xl text-base-primary-bold font-extrabold mb-3">
+    Manage all your employee efficiently
+  </h2>
+  <h4
+    class="text-sm sm:text-base lg:text-xl text-base-primary-bold font-semibold"
+  >
+    Let’s get you all set up so you can verify your personal account and begin
+    setting up your profile
+  </h4>
+  <form [formGroup]="registerForm" class="mt-6 form">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-y-4 gap-x-8">
+      <div class="form-control">
+        <h4
+          class="text-base sm:text-lg md:text-xl base-primary-bold font-bold mb-2"
+        >
+          Company Name
+        </h4>
+        <input
+          type="text"
+          pInputText
+          class="w-full h-10"
+          placeholder="e.g Google"
+          formControlName="companyName"
+          [ngClass]="{
+            'input-error':
+              registerForm.get('companyName')?.errors &&
+              registerForm.get('companyName')?.touched
+          }"
+        />
+        <span
+          class="text-base-red"
+          *ngIf="
+            registerForm.get('companyName')?.errors &&
+            registerForm.get('companyName')?.touched
+          "
+          >Company name is required</span
+        >
+      </div>
+      <div class="form-control">
+        <h4
+          class="text-base sm:text-lg md:text-xl base-primary-bold font-bold mb-2"
+        >
+          Fullname
+        </h4>
+        <input
+          type="text"
+          pInputText
+          class="w-full h-10"
+          placeholder="e.g Doe"
+          formControlName="fullName"
+          [ngClass]="{
+            'input-error':
+              registerForm.get('fullName')?.errors &&
+              registerForm.get('fullName')?.touched
+          }"
+        />
+        <span
+          class="text-base-red"
+          *ngIf="
+            registerForm.get('fullName')?.errors &&
+            registerForm.get('fullName')?.touched
+          "
+          >Full name is required</span
+        >
+      </div>
+      <div class="form-control">
+        <h4
+          class="text-base sm:text-lg md:text-xl base-primary-bold font-bold mb-2"
+        >
+          Email
+        </h4>
+        <input
+          type="email"
+          pInputText
+          class="w-full h-10"
+          placeholder="e.g john.doe@mail.com"
+          formControlName="email"
+          [ngClass]="{
+            'input-error':
+              registerForm.get('email')?.errors &&
+              registerForm.get('email')?.touched
+          }"
+        />
+        <span
+          class="text-base-red"
+          *ngIf="
+            registerForm.get('email')?.errors &&
+            registerForm.get('email')?.touched
+          "
+          >{{
+            registerForm.get("email")?.hasError("email")
+              ? "Email not valid"
+              : "Email is required"
+          }}</span
+        >
+      </div>
+      <div class="form-control">
+        <h4
+          class="text-base sm:text-lg md:text-xl base-primary-bold font-bold mb-2"
+        >
+          Phone Number (Optional)
+        </h4>
+        <div class="grid grid-cols-5 gap-3">
+          <input
+            type="text"
+            pInputText
+            class="w-full h-10 col-span-2"
+            placeholder="Country Code"
+            formControlName="countryCode"
+          />
+          <input
+            type="text"
+            pInputText
+            class="w-full h-10 col-span-3"
+            placeholder="e.g 821 2345 6789"
+            formControlName="phoneNumber"
+          />
+        </div>
+      </div>
+      <div class="form-control">
+        <h4
+          class="text-base sm:text-lg md:text-xl base-primary-bold font-bold mb-2"
+        >
+          Password
+        </h4>
+        <label class="relative block">
+          <input
+            [type]="isShowPassword ? 'text' : 'password'"
+            pInputText
+            placeholder="Insert Password"
+            class="w-full h-10"
+            formControlName="password"
+            [ngClass]="{
+              'input-error':
+                registerForm.get('password')?.errors &&
+                registerForm.get('password')?.touched
+            }"
+          />
+          <button type="button" (click)="showPassword('password')">
+            <img
+              [src]="
+                isShowPassword
+                  ? 'assets/images/ic-show-password.png'
+                  : 'assets/images/ic-hidden-password.png'
+              "
+              alt="show hide password icon"
+              class="absolute top-1/2 transform -translate-y-1/2 right-2 w-6"
+            />
+          </button>
+        </label>
+        <span
+          class="text-base-red"
+          *ngIf="
+            registerForm.get('password')?.errors &&
+            registerForm.get('password')?.touched
+          "
+          >Password is required</span
+        >
+      </div>
+      <div class="form-control">
+        <h4
+          class="text-base sm:text-lg md:text-xl base-primary-bold font-bold mb-2"
+        >
+          Confirm Password
+        </h4>
+        <label class="relative block">
+          <input
+            [type]="isShowConfirmPassword ? 'text' : 'password'"
+            pInputText
+            placeholder="Confirm Password"
+            class="w-full h-10"
+            formControlName="confirmPassword"
+            [ngClass]="{
+              'input-error':
+                registerForm.get('confirmPassword')?.errors &&
+                registerForm.get('confirmPassword')?.touched
+            }"
+          />
+          <button type="button" (click)="showPassword('confirm')">
+            <img
+              [src]="
+                isShowConfirmPassword
+                  ? 'assets/images/ic-show-password.png'
+                  : 'assets/images/ic-hidden-password.png'
+              "
+              alt="show hide password icon"
+              class="absolute top-1/2 transform -translate-y-1/2 right-2 w-6"
+            />
+          </button>
+        </label>
+        <span
+          class="text-base-red"
+          *ngIf="
+            registerForm.get('confirmPassword')?.errors &&
+            registerForm.get('confirmPassword')?.touched
+          "
+        >
+          {{
+            registerForm
+              .get("confirmPassword")
+              ?.hasError("confirmPasswordValidator")
+              ? "Passsword and Confirm Password didn't match."
+              : "Confirm password is required"
+          }}
+        </span>
+      </div>
+    </div>
+
+    <div class="agreement my-6 lg:my-8 text-sm md:text-base font-medium">
+      <div class="mb-4 flex items-start text-base-primary-bold">
+        <p-checkbox
+          name="group1"
+          value="yes"
+          class="mt-1"
+          formControlName="newsLetter"
+        ></p-checkbox>
+        <label class="ml-2 md:ml-4 font-medium"
+          >Yes I want to receive Axdif’s Newsletter</label
+        >
+      </div>
+
+      <div class="mb-4 flex items-start text-base-primary-bold">
+        <p-checkbox
+          name="group1"
+          value="yes"
+          class="mt-1"
+          formControlName="termCondition"
+        ></p-checkbox>
+        <div class="ml-2 md:ml-4">
+          I have read and accept the
+          <a routerLink="/" class="inline text-base-blue-primary font-bold">
+            Term & Conditions
+          </a>
+          and
+          <a routerLink="/" class="text-base-blue-primary font-bold"
+            >Privacy Policy</a
+          >
+        </div>
+      </div>
+
+      <span
+        class="text-base-red font-normal"
+        *ngIf="
+          registerForm.get('termCondition')?.errors &&
+          registerForm.get('termCondition')?.touched
+        "
+        >You must accept Term & Condition and Privacy Policy first</span
+      >
+    </div>
+
+    <button
+      pButton
+      type="button"
+      label="Submit"
+      class="p-button-danger btn-submit"
+      (click)="submit()"
+    ></button>
+  </form>
+</div>

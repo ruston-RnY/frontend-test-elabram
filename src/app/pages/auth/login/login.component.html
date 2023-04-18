@@ -1,0 +1,181 @@
+<section class="login h-screen font-proxima">
+  <div class="grid grid-cols-1 lg:grid-cols-3 gap-x-0 h-full">
+    <div
+      class="col-span-2 bg-base-blue-primary bg-image relative py-6 hidden lg:flex lg:flex-col"
+    >
+      <img
+        src="assets/images/login-img.png"
+        alt="login image"
+        class="w-[90%] m-auto"
+      />
+
+      <div class="text-white text-sm md:text-base text-center font-light">
+        © Copyright 2023. All Right Reserved.
+      </div>
+    </div>
+    <div class="p-4 lg:px-12 lg:pt-10 lg:pb-6 flex flex-col">
+      <div
+        class="max_md:fixed max_md:bg-white max_md:left-0 max_md:right-0 max_md:top-0 max_md:p-4"
+      >
+        <img src="assets/images/logo-axdif.svg" alt="logo" class="w-32" />
+      </div>
+
+      <div class="mt-20 mb-0 lg:my-auto md:px-12 lg:px-0">
+        <h2
+          class="text-2xl md:text-3xl text-base-primary-bold font-extrabold mb-3"
+        >
+          Login to your Account
+        </h2>
+        <h4
+          class="text-sm sm:text-base lg:text-xl text-base-primary-bold font-semibold"
+        >
+          Hi, welcome back! Select method to login
+        </h4>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">
+          <button
+            class="flex border border-base-primary-light items-center rounded-md px-3 py-2"
+          >
+            <img src="assets/images/google.png" alt="google icon" class="w-5" />
+            <span class="text-base lg:text-lg font-bold m-auto">Google</span>
+          </button>
+
+          <button
+            class="flex border border-base-primary-light items-center rounded-md px-3 py-2"
+          >
+            <img
+              src="assets/images/linkedin.png"
+              alt="google icon"
+              class="w-5"
+            />
+            <span class="text-base lg:text-lg font-bold m-auto">Linked In</span>
+          </button>
+        </div>
+
+        <fieldset class="border-t border-base-primary-light mt-4">
+          <legend
+            class="mx-auto px-4 text-base-primary-thin text-xs lg:text-sm font-medium"
+          >
+            Or continue with email
+          </legend>
+        </fieldset>
+
+        <form [formGroup]="loginForm" class="mt-6 form">
+          <div class="grid grid-cols-1 gap-4">
+            <div class="form-control">
+              <h4
+                class="text-base sm:text-lg md:text-xl base-primary-bold font-bold mb-2"
+              >
+                Email
+              </h4>
+              <input
+                type="email"
+                pInputText
+                class="w-full h-10"
+                placeholder="e.g John"
+                formControlName="email"
+              />
+              <span
+                class="text-base-red"
+                *ngIf="
+                  loginForm.get('email')?.errors &&
+                  loginForm.get('email')?.touched
+                "
+                >{{
+                  loginForm.get("email")?.hasError("email")
+                    ? "Email not valid"
+                    : "Email is required"
+                }}</span
+              >
+            </div>
+
+            <div class="form-control">
+              <h4
+                class="text-base sm:text-lg md:text-xl base-primary-bold font-bold mb-2"
+              >
+                Password
+              </h4>
+              <label class="relative block">
+                <input
+                  [type]="isShowPassword ? 'text' : 'password'"
+                  pInputText
+                  placeholder="Insert Password"
+                  class="w-full h-10"
+                  formControlName="password"
+                />
+                <button type="button" (click)="showPassword()">
+                  <img
+                    [src]="
+                      isShowPassword
+                        ? 'assets/images/ic-show-password.png'
+                        : 'assets/images/ic-hidden-password.png'
+                    "
+                    alt="show hide password icon"
+                    class="absolute top-1/2 transform -translate-y-1/2 right-2 w-6"
+                  />
+                </button>
+              </label>
+              <span
+                class="text-base-red"
+                *ngIf="
+                  loginForm.get('password')?.errors &&
+                  loginForm.get('password')?.touched
+                "
+                >Password is required</span
+              >
+            </div>
+
+            <div>
+              <div
+                class="flex items-center justify-between text-sm md:text-base mb-4"
+              >
+                <div class="flex items-start text-base-primary-thin">
+                  <p-checkbox
+                    name="group1"
+                    value="yes"
+                    class="mt-1"
+                    formControlName="rememberMe"
+                  ></p-checkbox>
+                  <label class="ml-2 md:ml-4 font-medium">Remember me</label>
+                </div>
+                <a routerLink="/" class="text-base-blue-primary font-bold"
+                  >Forgot Password?</a
+                >
+              </div>
+
+              <div class="text-base-red" *ngIf="errorCredential">
+                Your data does not match our system, If you don't have an
+                account
+                <a
+                  routerLink="/register"
+                  class="text-base-blue-primary font-semibold"
+                  >Register Now?</a
+                >
+              </div>
+            </div>
+
+            <button
+              pButton
+              type="button"
+              label="Login"
+              class="p-button-danger btn-submit"
+              (click)="submit()"
+            ></button>
+          </div>
+        </form>
+      </div>
+
+      <div
+        class="mt-6 text-base-primary-thin text-center text-sm md:text-base font-normal"
+      >
+        Privacy Policy • Terms & Condition
+      </div>
+
+      <div
+        class="mt-auto lg:mt-6 text-base-primary-bold text-center text-sm font-medium hidden max_md:block"
+      >
+        © Copyright 2023. All Right Reserved.
+      </div>
+    </div>
+  </div>
+</section>

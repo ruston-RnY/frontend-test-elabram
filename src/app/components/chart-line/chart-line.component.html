@@ -1,0 +1,101 @@
+<h5 class="font-bold text-base-gray-medium">{{ dataChart.title }}</h5>
+<div class="md:p-6">
+  <div class="wrap max_md:overflow-auto">
+    <div class="chart-line max_md:w-[1000px]">
+      <p-chart
+        type="line"
+        [data]="chartLineData"
+        [options]="chartLineOptions"
+      ></p-chart>
+    </div>
+  </div>
+
+  <div
+    class="grid grid-cols-2 md:grid-cols-4 mt-6 border border-base-gray-light rounded-md"
+  >
+    <div
+      class="flex p-4 border-b border-r md:border-b-0"
+      *ngFor="let item of dataChart.detail"
+    >
+      <div class="m-auto text-center">
+        <h6
+          class="text-base-blue-medium font-semibold text-xs xl:text-sm mb-1 flex items-start"
+        >
+          {{ item.name }}
+          <i class="pi pi-info-circle text-base-blue-primary ml-1 mt-1"></i>
+        </h6>
+        <div class="font-bold flex items-center justify-center mt-3">
+          <span>{{ item.value }}</span>
+          <div class="font-extralight text-[10px] ml-1 px-[2px]">
+            <span
+              class="py-[2px] px-1 font-bold rounded-sm"
+              *ngIf="item.type"
+              [ngClass]="{
+                'bg-base-green-light text-base-green-medium':
+                  item.type.title == 'increase',
+                'bg-base-red-light text-base-red': item.type.title == 'decrease'
+              }"
+            >
+              {{ item.type.value }}
+
+              <img
+                [src]="
+                  item.type && item.type.title == 'increase'
+                    ? 'assets/images/ic-increase.png'
+                    : 'assets/images/ic-decrease.png'
+                "
+                alt="icon increase"
+                class="w-3 inline"
+              />
+            </span>
+          </div>
+        </div>
+        <h6 class="text-base-black font-semibold text-xs xl:text-sm">
+          {{ item.desc }}
+        </h6>
+      </div>
+    </div>
+    <!-- <div class="flex p-4 border-b border-r md:border-b-0">
+      <div class="m-auto text-center">
+        <h6
+          class="text-base-blue-medium font-semibold text-xs xl:text-sm mb-1 flex items-start"
+        >
+          Total Working Days
+          <i class="pi pi-info-circle text-base-blue-primary ml-1 mt-1"></i>
+        </h6>
+        <h5 class="font-bold">237</h5>
+        <h6 class="text-base-black font-semibold text-xs xl:text-sm">
+          Last Year : 2000 Task
+        </h6>
+      </div>
+    </div>
+    <div class="flex p-4 border-b border-r md:border-b-0">
+      <div class="m-auto text-center">
+        <h6
+          class="text-base-blue-medium font-semibold text-xs xl:text-sm mb-1 flex items-start"
+        >
+          Total Working Days
+          <i class="pi pi-info-circle text-base-blue-primary ml-1 mt-1"></i>
+        </h6>
+        <h5 class="font-bold">237</h5>
+        <h6 class="text-base-black font-semibold text-xs xl:text-sm">
+          Last Year : 2000 Task
+        </h6>
+      </div>
+    </div>
+    <div class="flex p-4 border-b border-r md:border-b-0">
+      <div class="m-auto text-center">
+        <h6
+          class="text-base-blue-medium font-semibold text-xs xl:text-sm mb-1 flex items-start"
+        >
+          Total Working Days
+          <i class="pi pi-info-circle text-base-blue-primary ml-1 mt-1"></i>
+        </h6>
+        <h5 class="font-bold">237</h5>
+        <h6 class="text-base-black font-semibold text-xs xl:text-sm">
+          Last Year : 2000 Task
+        </h6>
+      </div>
+    </div> -->
+  </div>
+</div>

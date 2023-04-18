@@ -1,0 +1,70 @@
+{
+  "menus": [
+    {
+      "name": "Overview",
+      "url": "/overview"
+    },
+    {
+      "name": "Employee Stats",
+      "url": "/employee"
+    },
+    {
+      "name": "Submission",
+      "url": "/submission"
+    },
+    {
+      "name": "Task",
+      "url": "/task"
+    },
+    {
+      "name": "Chat",
+      "url": "/chat"
+    },
+    {
+      "name": "Payroll",
+      "url": "/payroll"
+    }
+  ],
+  "submission": [
+    {
+      "title": "Exc. Attendance",
+      "image": "assets/images/ic-submission-1.png",
+      "desc": "Report your special absences to get an exception"
+    },
+    {
+      "title": "Leave",
+      "image": "assets/images/ic-submission-2.png",
+      "desc": "Submit your leave request here. Don’t forget to pay attention to the quota"
+    },
+    {
+      "title": "Overtime Requisition",
+      "image": "assets/images/ic-submission-2.png",
+      "desc": "Submit your overtime request here. Use your overtime efficiently"
+    },
+    {
+      "title": "Overtime",
+      "image": "assets/images/ic-submission-3.png",
+      "desc": "Report your overtime here. So that your working time is not in vain"
+    },
+    {
+      "title": "Claim",
+      "image": "assets/images/ic-submission-4.png",
+      "desc": "Submit your reimbursement here. Complete the submission file"
+    },
+    {
+      "title": "Business Trip",
+      "image": "assets/images/ic-submission-5.png",
+      "desc": "Submit your business trip here. Complete the submission file"
+    },
+    {
+      "title": "Cash Advance",
+      "image": "assets/images/ic-submission-2.png",
+      "desc": "Submit your multilevel reimbursement here. Complete the submission file"
+    },
+    {
+      "title": "Approval",
+      "image": "assets/images/ic-submission-6.png",
+      "desc": "Do all the approval process for your team here"
+    }
+  ]
+}

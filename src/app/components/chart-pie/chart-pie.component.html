@@ -1,0 +1,11 @@
+<div class="flex flex-col h-full">
+  <h5 class="font-bold text-base-gray-medium">{{ this.dataChart.title }}</h5>
+  <div class="p-4 chart-pie m-auto">
+    <p-chart
+      type="pie"
+      [data]="chartPieData"
+      [options]="chartPieOptions"
+      [style]="{ width: '40%' }"
+    ></p-chart>
+  </div>
+</div>

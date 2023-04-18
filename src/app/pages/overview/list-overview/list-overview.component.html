@@ -1,0 +1,243 @@
+<section
+  class="bg-base-body min-h-screen pt-[6.5rem] px-4 lg:px-8 pb-12 font-open-sans"
+>
+  <div class="flex flex-row max_md:flex-col-reverse text-base-black-medium">
+    <div class="basis-2/3 lg:mr-5">
+      <div
+        class="flex flex-col h-full justify-between text-sm xs:text-base lg:text-lg xl:text-xl"
+      >
+        <div
+          class="mb-4 bg-white rounded-md py-4 px-4 md:px-6 shadow-light border"
+        >
+          <div class="flex items-center border-b pb-4">
+            <h5 class="font-bold">Summary</h5>
+            <div class="flex items-center ml-auto">
+              <h6 class="text-sm font-extralight hidden md:block">Periode</h6>
+              <div class="ml-2 relative w-32 xs:w-40 lg:w-52">
+                <p-calendar
+                  [(ngModel)]="datePeriode"
+                  view="month"
+                  dateFormat="MM yy"
+                  [yearNavigator]="true"
+                  yearRange="2000:2030"
+                  [readonlyInput]="true"
+                  inputId="monthpicker"
+                  (ngModelChange)="onChangeDate()"
+                ></p-calendar>
+                <i
+                  class="pi pi-calendar text-base-blue-primary absolute right-3 top-3"
+                ></i>
+              </div>
+            </div>
+          </div>
+
+          <ng-container
+            *ngIf="
+              selectedDataSummary?.data && selectedDataSummary?.data.length > 0;
+              else summaryEmpty
+            "
+          >
+            <div class="grid grid-cols-2 sm:grid-cols-3 gap-4 mt-4">
+              <div
+                class="border border-base-gray-light rounded-md p-4"
+                *ngFor="let summary of selectedDataSummary?.data"
+              >
+                <h6
+                  class="text-base-gray font-semibold text-xs xl:text-sm mb-1"
+                >
+                  {{ summary.name }}
+                </h6>
+                <h5 class="font-bold mb-4 sm:mb-0">{{ summary.value }}</h5>
+              </div>
+            </div>
+          </ng-container>
+
+          <ng-template #summaryEmpty>
+            <h5 class="font-bold text-center my-6">
+              Data this periode is empty
+            </h5>
+          </ng-template>
+        </div>
+
+        <div
+          class="bg-white rounded-md py-4 px-4 md:px-6 shadow-light text-sm xs:text-base lg:text-lg xl:text-xl border mb-4 block md:hidden"
+        >
+          <div class="border-b pb-4">
+            <h5 class="font-bold">Today's Attendance</h5>
+          </div>
+
+          <div class="grid grid-cols-2 gap-4 mt-3">
+            <div class="border border-base-gray-light rounded-md">
+              <div class="bg-green-600 h-2 rounded-t-md"></div>
+
+              <div class="p-4">
+                <h6 class="text-base-gray font-light text-xs xl:text-sm mb-1">
+                  Clock In
+                </h6>
+                <h5 class="font-bold mb-4 sm:mb-0">12.34</h5>
+              </div>
+            </div>
+            <div class="border border-base-gray-light rounded-md">
+              <div class="bg-red-600 h-2 rounded-t-md"></div>
+              <div class="p-4">
+                <h6 class="text-base-gray font-light text-xs xl:text-sm mb-1">
+                  Clock In
+                </h6>
+                <h5 class="font-bold mb-4 sm:mb-0">12.34</h5>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="max_md:mb-4 bg-white rounded-md py-4 px-4 md:px-6 shadow-light border"
+        >
+          <div class="flex items-center border-b pb-4">
+            <h5 class="font-bold">Task Due Soon</h5>
+            <div class="ml-auto">
+              <a
+                routerLink="/"
+                class="text-sm font-semibold text-base-blue-primary"
+              >
+                See All
+                <img
+                  src="assets/images/ic-right.png"
+                  alt="icon arrow rifght"
+                  class="w-5 inline-block"
+                />
+              </a>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 gap-3 mt-4">
+            <div
+              class="border border-base-gray-light rounded-md p-4 md:flex md:justify-between items-center overview-task"
+              *ngFor="let task of dataOverview?.task"
+            >
+              <div class="max_md:mb-2">
+                <h6
+                  class="text-base-gray font-semibold text-xs xl:text-sm mb-1"
+                >
+                  {{ task.subtitle }}
+                </h6>
+                <h5 class="text-xs lg:text-sm xl:text-base font-bold">
+                  {{ task.title }}
+                </h5>
+              </div>
+              <ul
+                class="flex items-center text-[10px] md:text-xs xl:text-sm text-base-gray font-semibold"
+              >
+                <li class="mr-2 md:mr-6 flex items-center">
+                  <i class="pi pi-paperclip mr-2"></i>
+                  {{ task.attached_file }}
+                </li>
+                <li class="mr-2 md:mr-6 flex items-center">
+                  <i class="pi pi-comment mr-2"></i> {{ task.comment }}
+                </li>
+                <li class="mr-2 md:mr-6"><div class="border-r-2 h-6"></div></li>
+                <li class="mr-2 md:mr-6">
+                  <div
+                    class="bg-base-green-light text-base-green-medium font-extralight py-0 px-1 md:p-2 rounded-full"
+                  >
+                    {{ task.level }}
+                  </div>
+                </li>
+                <li class="flex items-center">
+                  <i class="pi pi-calendar mr-2"></i>
+                  {{ task.date | date : "dd MMMM yyyy" }}
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="basis-1/3 max_md:mb-4">
+      <div class="flex flex-col h-full">
+        <div
+          class="mb-4 relative bg-white rounded-md py-4 px-4 md:px-6 shadow-light border h-2/3"
+        >
+          <img
+            src="assets/images/img-banner-profile.png"
+            alt="banner"
+            class="absolute top-0 w-full left-0 right-0 h-36 object-cover rounded-t-md"
+          />
+
+          <div class="flex border-b mt-20 pb-3">
+            <div class="m-auto text-center z-10">
+              <img
+                src="assets/images/profile-picture.png"
+                alt=""
+                class="m-auto w-20 sm:w-24"
+              />
+              <h6
+                class="text-sm xs:text-base lg:text-lg font-bold mt-3 mb-1 capitalize"
+              >
+                {{ dataUser?.fullName }}
+              </h6>
+              <div class="flex items-center justify-center">
+                <img
+                  src="assets/images/ic-building.png"
+                  alt="icon building"
+                  class=""
+                />
+                <span
+                  class="ml-2 font-normal text-xs lg:text-sm xl:text-base text-black capitalize"
+                  >{{ dataUser?.companyName }}</span
+                >
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-4">
+            <div
+              class="flex justify-between items-center mb-3"
+              *ngFor="let user of dataOverview.userDetail"
+            >
+              <h6
+                class="text-base-gray font-normal text-xs lg:text-sm xl:text-base"
+              >
+                {{ user.title }}
+              </h6>
+              <h6
+                class="text-black font-normal text-xs lg:text-sm xl:text-base"
+              >
+                {{ user.value }}
+              </h6>
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="bg-white rounded-md py-4 px-4 md:px-6 shadow-light text-sm xs:text-base lg:text-lg xl:text-xl border h-1/3 hidden md:block"
+        >
+          <div class="border-b pb-4">
+            <h5 class="font-bold">Today's Attendance</h5>
+          </div>
+
+          <div class="grid grid-cols-2 gap-4 mt-3">
+            <div class="border border-base-gray-light rounded-md">
+              <div class="bg-green-600 h-2 rounded-t-md"></div>
+
+              <div class="p-4">
+                <h6 class="text-base-gray font-light text-xs xl:text-sm mb-1">
+                  Clock In
+                </h6>
+                <h5 class="font-bold mb-4 sm:mb-0">12.34</h5>
+              </div>
+            </div>
+            <div class="border border-base-gray-light rounded-md">
+              <div class="bg-red-600 h-2 rounded-t-md"></div>
+              <div class="p-4">
+                <h6 class="text-base-gray font-light text-xs xl:text-sm mb-1">
+                  Clock In
+                </h6>
+                <h5 class="font-bold mb-4 sm:mb-0">12.34</h5>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

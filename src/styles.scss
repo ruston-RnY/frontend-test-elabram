@@ -1,0 +1,214 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+@import "assets/typography/mixins", "assets/typography/typography";
+
+@layer components {
+  .bg-image {
+    background-image: url(assets/images/auth-bg.png);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  &::-webkit-scrollbar {
+    width: 8px;
+    height: 5px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: #e3e5eb;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: #3a3949;
+  }
+}
+
+main {
+  .font-proxima {
+    font-family: "Proxima", sans-serif;
+  }
+
+  .font-poppins {
+    font-family: "Poppins", sans-serif;
+  }
+
+  .font-open-sans {
+    font-family: "Open Sans", sans-serif;
+  }
+
+  .shadow-medium-bold {
+    box-shadow: 0px 1px 2px #00000029;
+  }
+
+  .shadow-regular-bold {
+    box-shadow: 0px 15px 24px #00000012;
+  }
+
+  .shadow-light-bold {
+    box-shadow: 0px 0px 24px #0000000f;
+  }
+
+  .shadow-light {
+    box-shadow: 1px 1px 2px #00000005;
+  }
+
+  .btn-submit {
+    font-family: "Proxima", sans-serif;
+    padding: 6px 20px;
+    font-size: 16px;
+
+    @media (min-width: 640px) {
+      font-size: 20px;
+    }
+  }
+
+  .form {
+    input {
+      color: #888fb0;
+      font-weight: 500;
+      border-color: #888fb0;
+      font-size: 14px;
+
+      @media (min-width: 640px) {
+        font-size: 16px;
+      }
+    }
+
+    .input-error {
+      border: 1px solid red;
+    }
+  }
+
+  .p-checkbox {
+    width: 20px;
+    height: 20px;
+    .p-checkbox-box {
+      border: 2px solid #000037 !important;
+      border-radius: 2px !important;
+      width: 20px;
+      height: 20px;
+
+      @media (max-width: 640px) {
+        width: 18px;
+        height: 18px;
+      }
+    }
+
+    .p-checkbox-box.p-highlight {
+      border-color: transparent !important;
+      background: #f6703b !important;
+    }
+  }
+
+  .p-calendar {
+    height: 2.4rem;
+
+    input {
+      font-weight: 600;
+    }
+  }
+
+  .overview-task {
+    .pi {
+      @media (max-width: 640px) {
+        font-size: 12px !important;
+      }
+    }
+  }
+
+  .employee {
+    .p-button {
+      padding: 8px 12px;
+      .p-button-label {
+        font-size: 14px;
+      }
+    }
+
+    .content {
+      .pi {
+        font-size: 10px !important;
+      }
+    }
+
+    .chart-bar {
+      canvas {
+        width: 100% !important;
+        height: 250px !important;
+        object-fit: contain;
+      }
+    }
+
+    .chart-pie {
+      canvas {
+        width: 100% !important;
+        height: 350px !important;
+        object-fit: contain;
+
+        @media (max-width: 576px) {
+          height: 250px !important;
+        }
+      }
+    }
+
+    .chart-line {
+      canvas {
+        width: 100% !important;
+        height: 250px !important;
+        object-fit: contain;
+
+        // @media (max-width: 576px) {
+        //   height: 100% !important;
+        // }
+      }
+    }
+
+    @media (max-width: 640px) {
+      .p-button {
+        padding: 4px 8px;
+
+        .p-button-label {
+          font-size: 10px;
+        }
+      }
+
+      .p-calendar {
+        input {
+          font-size: 12px;
+        }
+      }
+    }
+  }
+
+  .p-datatable {
+    font-family: "Open Sans", sans-serif;
+    .p-datatable-thead > tr > th {
+      color: #212121;
+      background: #eaeaea;
+    }
+
+    .p-datatable-tbody > tr > td {
+      font-weight: 400;
+      color: #212121;
+    }
+
+    @media (max-width: 640px) {
+      .p-datatable-thead > tr > th {
+        font-size: 14px;
+      }
+
+      .p-datatable-tbody > tr > td {
+        font-size: 14px;
+      }
+    }
+  }
+}

@@ -1,0 +1,39 @@
+<section class="h-screen register font-proxima">
+  <div class="grid grid-cols-1 lg:grid-cols-3 gap-x-0 h-full">
+    <div
+      class="bg-base-blue-primary text-white p-8 bg-image relative hidden lg:flex"
+    >
+      <app-carousel
+        *ngIf="dataSlider.data.length > 0"
+        class="m-auto"
+        [dataSlider]="dataSlider.data"
+        [sliderDuration]="5"
+      ></app-carousel>
+    </div>
+    <div
+      class="col-span-2 p-4 lg:px-12 lg:pt-10 lg:pb-6 flex flex-col max_md:bg-image max_md:bg-base-blue-primary"
+    >
+      <div
+        class="max_md:fixed max_md:bg-white max_md:left-0 max_md:right-0 max_md:top-0 max_md:p-4 max_md:shadow-md"
+      >
+        <img src="assets/images/logo-axdif.svg" alt="logo" class="w-32" />
+      </div>
+
+      <h1
+        class="text-3xl md:text-4xl block lg:hidden font-bold text-white text-center max_md:mt-20"
+      >
+        A few clicks away from being a part of Axdif
+      </h1>
+
+      <div class="m-auto">
+        <router-outlet></router-outlet>
+      </div>
+
+      <div
+        class="mt-6 md:mt-8 text-white lg:text-base-primary-bold text-sm md:text-base max_md:text-center font-light lg:font-medium"
+      >
+        © Copyright 2023. All Right Reserved.
+      </div>
+    </div>
+  </div>
+</section>

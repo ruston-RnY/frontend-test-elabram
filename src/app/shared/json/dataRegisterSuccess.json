@@ -1,0 +1,19 @@
+{
+  "data": [
+    {
+      "title": "Verify your account",
+      "image": "assets/images/step-1.png",
+      "desc": "A verification link has been sent to your email account"
+    },
+    {
+      "title": "Login to your account",
+      "image": "assets/images/step-2.png",
+      "desc": "Login to your Axdif account"
+    },
+    {
+      "title": "Setup your data",
+      "image": "assets/images/step-3.png",
+      "desc": "Input your employee data and get the ease of managing employee"
+    }
+  ]
+}

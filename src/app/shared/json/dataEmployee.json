@@ -1,0 +1,178 @@
+{
+  "data": [
+    {
+      "periode": "03-2023",
+      "attendance_summary": {
+        "title": "Attendance Summary",
+        "labels": [
+          "January",
+          "February",
+          "March",
+          "April",
+          "May",
+          "June",
+          "July",
+          "August",
+          "September",
+          "October",
+          "November",
+          "December"
+        ],
+        "datasets": [
+          {
+            "backgroundColor": "#E53935",
+            "data": [3, 4, 2, 3, 2, 2, 12, 4, 2, 4, 2, 2]
+          },
+          {
+            "backgroundColor": "#0796E5",
+            "data": [25, 20, 28, 23, 24, 20, 12, 24, 25, 20, 26, 20]
+          }
+        ],
+        "detail": [
+          {
+            "name": "Total Working Days",
+            "value": "237"
+          },
+          {
+            "name": "Actual Working Hours",
+            "value": "2126 hr 14 min"
+          },
+          {
+            "name": "Total Working Hours",
+            "value": "2930 hr 26 min"
+          },
+          {
+            "name": "Total Late Coming",
+            "value": "0"
+          }
+        ]
+      },
+      "attendance_completeness": {
+        "title": "Attendance Completenes",
+        "labels": ["Complete", "Not Complete"],
+        "datasets": [
+          {
+            "data": [50, 50],
+            "backgroundColor": ["#E53935", "#0796E5"],
+            "hoverBackgroundColor": ["#df1e19", "#0f80bf"]
+          }
+        ]
+      },
+      "overall_task_progress": {
+        "title": "Overall Task Progress",
+        "labels": ["Complete", "Overdue", "Unscheduled"],
+        "datasets": [
+          {
+            "data": [50, 25, 25],
+            "backgroundColor": ["#0796E5", "#D4DFE7", "#FF9800"],
+            "hoverBackgroundColor": ["#0f80bf", "#b4c0c9", "#d58309"]
+          }
+        ]
+      },
+      "task_completion": {
+        "title": "Task Completion in All Project",
+        "labels": [
+          "January",
+          "February",
+          "March",
+          "April",
+          "May",
+          "June",
+          "July",
+          "August",
+          "September",
+          "October",
+          "November",
+          "December"
+        ],
+        "datasets": [
+          {
+            "label": "Complete",
+            "data": [65, 59, 80, 81, 56, 55, 40, 80, 181, 56, 55, 40],
+            "fill": true,
+            "tension": 0.4,
+            "borderColor": "#42A5F5"
+          },
+          {
+            "label": "Created Task",
+            "data": [12, 51, 62, 33, 21, 62, 45, 180, 81, 56, 55, 40],
+            "fill": true,
+            "borderColor": "#FFA726",
+            "tension": 0.4,
+            "backgroundColor": "rgba(255,167,38,0.2)"
+          }
+        ],
+        "detail": [
+          {
+            "name": "Total Task Completed",
+            "value": "2400",
+            "desc": "Last Year : 2000 Task",
+            "type": {
+              "title": "increase",
+              "value": "20%"
+            }
+          },
+          {
+            "name": "Most Completed Tasks At",
+            "value": "185",
+            "desc": "May 2022",
+            "type": null
+          },
+          {
+            "name": "Total Task Created",
+            "value": "1600",
+            "desc": "Last Year : 1800 Task",
+            "type": {
+              "title": "decrease",
+              "value": "10%"
+            }
+          },
+          {
+            "name": "Most Completed Tasks At",
+            "value": "UI/UX Design",
+            "desc": "240 Task",
+            "type": null
+          }
+        ]
+      },
+      "leave_recap": [
+        {
+          "code": "LV-PTES-PT-CV10435-01-23-001",
+          "requested": "2023-03-14 18:07:43",
+          "leave_type": "Annual Leave",
+          "start_date": "2023-04-14 18:07:43",
+          "end_date": "2023-03-14 18:07:43",
+          "duration": "1 Day(s)",
+          "day_type": "Full Day",
+          "leave_category": "Emergency Leave",
+          "status": "Approve",
+          "reason": "Family Event"
+        },
+        {
+          "code": "LV-PTES-PT-CV10435-01-23-001",
+          "requested": "2023-03-14 18:07:43",
+          "leave_type": "Sick Leave",
+          "start_date": "2023-03-14 18:07:43",
+          "end_date": "2023-03-14 18:07:43",
+          "duration": "2 Day(s)",
+          "day_type": "Full Day",
+          "leave_category": "Emergency Leave",
+          "status": "Approve",
+          "reason": "Family Event"
+        },
+        {
+          "code": "LV-PTES-PT-CV10435-01-23-001",
+          "requested": "2023-04-04 18:07:43",
+          "leave_type": "Annual Leave",
+          "start_date": "2023-03-14 18:07:43",
+          "end_date": "2023-03-14 18:07:43",
+          "duration": "4 Day(s)",
+          "day_type": "Half Day",
+          "leave_category": "Emergency Leave",
+          "status": "Approve",
+          "reason": "Family Event"
+        }
+      ]
+    }
+  ]
+}

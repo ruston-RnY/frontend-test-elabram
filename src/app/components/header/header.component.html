@@ -1,0 +1,154 @@
+<header class="font-open-sans font-bold fixed left-0 right-0 z-20">
+  <div class="bg-white px-4 lg:px-8 py-4 shadow-medium-bold">
+    <div class="flex items-center">
+      <img
+        src="assets/images/axdif-icon.png"
+        alt="logo axdif"
+        class="w-12 h-12"
+      />
+      <div class="border-r-2 mx-6 h-9 hidden lg:block"></div>
+
+      <div class="max_md:m-auto max_md:w-1/2 relative">
+        <button
+          class="text-base-primary-bold text-base font-bold block lg:hidden m-auto"
+          (click)="showMenu()"
+        >
+          {{ currentRoute?.name }}
+          <img
+            src="assets/images/ic-down.png"
+            alt="icon carret down"
+            class="inline-block w-[14px]"
+          />
+        </button>
+
+        <ul
+          class="max_md:absolute max_md:-top-2 items-center text-center text-base-primary-light text-sm xs:text-base lg:text-lg xl:text-xl"
+          [ngClass]="{
+            'block bg-white p-2 rounded-md shadow-md w-full': isShowMenu,
+            'hidden lg:flex': !isShowMenu
+          }"
+        >
+          <li
+            class="max_md:mb-4 lg:mr-4 px-4 py-2 rounded-md hover:bg-base-blue-thin hover:text-base-blue-primary transition-all"
+            [ngClass]="{
+              'bg-base-primary-extralight text-base-primary-bold':
+                currentRoute?.url == menu.url
+            }"
+            *ngFor="let menu of dataHeader.menus"
+          >
+            <button (click)="navigate(menu.url)">
+              {{ menu.name }}
+              <i class="pi pi-angle-down" *ngIf="menu.name == 'Submission'"></i>
+            </button>
+          </li>
+        </ul>
+      </div>
+
+      <div class="relative lg:ml-auto">
+        <button (click)="openProfil()">
+          <img
+            src="assets/images/profile-picture.png"
+            alt="profile picture"
+            class="w-9"
+          />
+        </button>
+
+        <div
+          class="absolute shadow-light-bold bg-white rounded-md p-4 right-0 w-60 xs:min-w-[20rem] transition-opacity"
+          [ngClass]="{
+            'visible opacity-100': isShowProfil,
+            'invisible opacity-0': !isShowProfil
+          }"
+        >
+          <div class="flex items-center border-b pb-4">
+            <img
+              src="assets/images/profile-picture.png"
+              alt="profile picture"
+              class="w-12"
+            />
+            <div class="ml-4">
+              <h5 class="text-black font-bold text-sm md:text-base capitalize">
+                {{ dataUser?.fullName }}
+              </h5>
+              <h6
+                class="text-base-gray text-xs md:text-sm font-extralight mb-2"
+              >
+                {{ dataUser?.email }}
+              </h6>
+              <span
+                class="bg-base-blue-light text-base-blue-primary font-extralight text-xs p-2 rounded-full"
+              >
+                Employee
+              </span>
+            </div>
+          </div>
+
+          <a routerLink="/" class="border-b py-4 flex items-center">
+            <img src="assets/images/ic-user.png" alt="user icon" class="w-5" />
+            <h6 class="text-base-black text-xs md:text-sm font-semibold ml-2">
+              My Profile
+            </h6>
+          </a>
+
+          <div class="border-b pt-2 pb-4">
+            <span class="text-[10px] md:text-xs text-base-gray font-extralight"
+              >Appearance</span
+            >
+            <div class="flex items-center justify-between">
+              <h6 class="text-base-black text-xs md:text-sm font-semibold">
+                Dark Mode
+              </h6>
+
+              <label class="relative inline-flex items-center cursor-pointer">
+                <input type="checkbox" value="" class="sr-only peer" />
+                <div
+                  class="w-11 h-6 bg-gray-200 peer-focus:outline-none rounded-full peer dark:bg-gray-300 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-gray-600"
+                ></div>
+              </label>
+            </div>
+          </div>
+
+          <button
+            type="button"
+            (click)="logout()"
+            class="py-4 flex items-center"
+          >
+            <img
+              src="assets/images/ic-logout.png"
+              alt="logout icon"
+              class="w-5"
+            />
+            <h6 class="text-base-black text-xs md:text-sm font-semibold ml-2">
+              Logout
+            </h6>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <ng-container *ngIf="isShowSubmissionMenu">
+    <div
+      class="bg-white mt-1 pt-4 pb-28 lg:py-4 px-8 lg:px-24 text-sm xs:text-base lg:text-lg xl:text-xl shadow-regular-bold overflow-auto h-screen md:h-auto"
+    >
+      <h5 class="text-base-blue-primary font-bold pb-2">Submission</h5>
+      <hr />
+      <div
+        class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 text-base-primary-bold font-bold lg:px-4"
+      >
+        <div
+          *ngFor="let mission of dataHeader.submission"
+          class="cursor-pointer"
+        >
+          <div class="flex items-center py-4">
+            <img [src]="mission.image" alt="submission icon" class="w-9" />
+            <h5 class="ml-2">{{ mission.title }}</h5>
+          </div>
+          <p class="text-xs lg:text-sm font-extralight">
+            {{ mission.desc }}
+          </p>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+</header>

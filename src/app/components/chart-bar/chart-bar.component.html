@@ -1,0 +1,35 @@
+<h5 class="font-bold text-base-gray-medium max_md:mb-3">
+  {{ this.dataChart.title }}
+</h5>
+<div class="md:p-6">
+  <div class="wrap max_md:overflow-auto">
+    <div class="chart-bar max_md:w-[1000px]">
+      <p-chart
+        type="bar"
+        [data]="chartBarData"
+        [options]="chartBarOptions"
+      ></p-chart>
+    </div>
+  </div>
+  <div class="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-4 mt-6">
+    <div
+      class="border border-base-gray-light rounded-md relative"
+      *ngFor="let item of dataChart.detail"
+    >
+      <div
+        class="h-full w-1 rounded-l-md absolute left-0"
+        [ngClass]="item.value == '0' ? 'bg-red-600' : 'bg-base-blue-primary'"
+      ></div>
+
+      <div class="p-4">
+        <h6
+          class="text-base-gray font-semibold text-xs xl:text-sm mb-1 flex items-start"
+        >
+          {{ item.name }}
+          <i class="pi pi-info-circle text-base-blue-primary ml-1 mt-1"></i>
+        </h6>
+        <h5 class="font-bold">{{ item.value }}</h5>
+      </div>
+    </div>
+  </div>
+</div>
